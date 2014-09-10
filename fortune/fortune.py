@@ -7,10 +7,12 @@
 #
 
 from glob import glob
+from os import path
 import random
 
 def main():
-    with open(random.choice(glob('cookiesets/*.txt')), "r") as f:
+    cookie_path = path.join(path.dirname(__file__), "cookiesets")
+    with open(random.choice(glob('%s/*.txt' % cookie_path)), "r") as f:
         print("\n"+random.choice(f.readlines()))
 
 if __name__ == "__main__":
